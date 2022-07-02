@@ -31,11 +31,12 @@ app.get("/menu-database", (req, res) => {
   })
 })
 
+if (process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
+}
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log("Server is now running on port 3001")
 })
 
-// "build": "webpack",
-// "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build  --prefix client"
