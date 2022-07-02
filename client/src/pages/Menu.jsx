@@ -5,8 +5,9 @@ import '../styles/Menu.css'
 import axios from "axios"
 
 function Menu() {
+  const baseUrl = process.env.baseURL || "http://localhost:3001"
   const [MenuList, setMenuList] = useState([])
-  axios.get("http://localhost:3001/menu-database").then((res) => {
+  axios.get(`${baseUrl}/menu-database`).then((res) => {
     setMenuList(res.data)
   })
 
