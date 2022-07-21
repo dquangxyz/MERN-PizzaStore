@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 
 
 mongoose.connect("mongodb+srv://dquangxyz:12344321@cluster0.feme6.mongodb.net/pizzastore", {

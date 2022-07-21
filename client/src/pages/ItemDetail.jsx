@@ -6,13 +6,13 @@ import { CartContext } from '../context'
 
 function ItemDetail() {
   const location = useLocation()
-  const { name, image, price, description, ingredients } = location.state
+  const { id, name, image, price, description, ingredients } = location.state
   const [cartState, dispatch] = useContext(CartContext)
   
   const handleSubmit = () => {
     dispatch({
       type:"ADD_TO_CART",
-      payload: {name, price: Number(price), quantity: 1}
+      payload: {id, name, price: Number(price), quantity: 1}
     })
   }
 
