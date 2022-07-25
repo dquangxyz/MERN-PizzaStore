@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   width: 100%;
   height: 100px;
   background-color: #121619;
@@ -6,40 +6,15 @@
   flex-direction: row;
 }
 
-.navbar .leftSide {
-  flex: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 150px;
-}
 
-.navbar .leftSide img {
-  width: 70px;
-}
-
-.navbar .rightSide {
-  flex: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 20px;
-}
-
-.navbar .rightSide button {
+.navbar .navbar-link button {
   background-color: transparent;
   border: none;
   color: white;
   cursor: pointer;
 }
 
-.navbar .rightSide svg {
+.navbar .navbar-link svg {
   font-size: 40px;
 }
 
@@ -67,36 +42,150 @@
   width: 70px;
   margin: 5px;
 }
+
+@media only screen and (min-width: 600px){
+  .navbar .navbar-toggle {
+    display: none
+  }
+}
+
 @media only screen and (max-width: 900px) {
-  .navbar .rightSide a {
+  .navbar .navbar-link a {
     width: 70px;
   }
-  .navbar .leftSide {
+  .navbar .navbar-toggle {
     padding-left: 50px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar .rightSide a {
+  .navbar .navbar-link a {
     display: none;
   }
 
-  .navbar .rightSide {
+  .navbar .navbar-link {
     justify-content: flex-end;
     padding-right: 50px;
   }
 
-  .navbar .rightSide button {
+  .navbar .navbar-link button {
     display: inherit;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .navbar .rightSide button {
+  .navbar .navbar-link button {
     display: none;
   }
 
   .hiddenLinks {
+    display: none;
+  }
+} */
+
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 100px;
+  background-color: #121619;
+}
+
+.navbar #brand-logo {
+  position: relative;
+  width: 90px;
+  margin-left: 2rem;
+}
+
+.navbar-links {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar svg {
+  font-size: 40px;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-links li {
+  list-style: none;
+  height: 100%;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 2.5rem;
+}
+
+.navbar-links li:hover {
+  cursor: pointer;
+  background-color: rgb(66, 66, 66);
+}
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      display: unset;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links ul {
+      flex-direction: column;
+      display: flex;
+      width: 100%;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+      width: 100%;
+      background-color: #121619;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  #close {
     display: none;
   }
 }

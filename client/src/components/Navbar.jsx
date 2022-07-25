@@ -6,24 +6,19 @@ import '../styles/Navbar.css'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 function Navbar() {
-    const [openLinks, setOpenLinks] = useState(false)
+    const [openToggle, setOpenToggle] = useState(false)
 
   return (
     <div className='navbar'>
-        <div className='leftSide' id={openLinks ? "open" : "close" }>
-            <Link to="/" ><img src={logo}/></Link>
-            <div className='hiddenLinks'>
-                <Link to="/">Home</Link>
-                <Link to="/menu">Menu</Link>
-                <Link to="/about">About</Link>
-            </div>          
-        </div>
-        <div className='rightSide'>
-            <Link to="/">Home</Link>
-            <Link to="/menu">Menu</Link>
-            <Link to="/about">About</Link>
-            <button><ReorderIcon onClick={() => {setOpenLinks(!openLinks)}} /></button>
-            <Link to="/cart"><AiOutlineShoppingCart color="white" style={{height:"1.5rem", width:"1.5rem"}} /></Link>
+        <a href="/"><img src={logo} id="brand-logo"/></a>
+        <button className='toggle-button'><ReorderIcon onClick={() => {setOpenToggle(!openToggle)}} /></button>
+        <div className='navbar-links' id={openToggle ? "open" : "close"}>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/menu">Menu</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/cart"><AiOutlineShoppingCart color="white" style={{height:"1.5rem", width:"1.5rem"}} /></Link></li>
+            </ul>
         </div>
     </div>
   )
